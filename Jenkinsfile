@@ -35,7 +35,7 @@ pipeline {
 
         stage('Deploy to EKS') {
             steps {
-                sh 'arn:aws:eks:us-east-1:345115395542:cluster/Jenkins_EKS'
+                sh 'kubectl config use-context arn:aws:eks:us-east-1:345115395542:cluster/Jenkins_EKS'
                 sh 'kubectl apply -f deployment.yaml'
                 sh 'kubectl apply -f service.yaml'
             }
